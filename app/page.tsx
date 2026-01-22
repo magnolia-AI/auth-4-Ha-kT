@@ -1,28 +1,34 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { useToast } from "@/hooks/use-toast"
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
-{/* 
-  TEMPLATE PAGE: Home
-  This is a template home page.
-  Replace all content with content that suits the users request.
-*/}
 export default function Home() {
-  const { toast } = useToast()
   return (
-    <div className="min-h-full">
-
-      <section className="container mx-auto px-4 pt-24 pb-20">
-        <div className="max-w-[800px] mx-auto text-center">
-          <h1 className="text-5xl font-bold tracking-tight lg:text-6xl">
-            Template Starter
-          </h1>
-          <p className="mt-6 text-xl text-muted-foreground max-w-[600px] mx-auto">
-            This is a customizable template. Replace all content with your own using the chat interface.
-          </p>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-background to-secondary/20 px-4">
+      <div className="max-w-[800px] mx-auto text-center space-y-8">
+        <div className="flex justify-center">
+          <CheckCircle2 className="h-20 w-20 text-primary" />
         </div>
-      </section>
+        <h1 className="text-5xl font-extrabold tracking-tight lg:text-7xl">
+          Todo App
+        </h1>
+        <p className="mt-6 text-xl text-muted-foreground max-w-[600px] mx-auto leading-relaxed">
+          Stay organized and productive with our persistent, secure, and intuitive todo list manager.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+          <Button asChild size="lg" className="h-12 px-8 text-lg font-semibold">
+            <Link href="/todos">
+              Get Started <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="h-12 px-8 text-lg font-semibold">
+            <Link href="/auth/sign-up">Create Account</Link>
+          </Button>
+        </div>
+      </div>
     </div>
   )
 }
+
